@@ -1,0 +1,10 @@
+{% if menu_items %}
+<li class="nav-item dropdown">
+    <a class="nav-link root dropdown-toggle {% if is_active %} active {% endif %} " href="#" data-bs-toggle="dropdown">
+        {{menu_items.0.menu.name}} </a>
+        <ul class="dropdown-menu">
+            {% include "menu_items.html" with items=menu_items request=request %}
+        </ul>
+
+</li>
+{% endif %}

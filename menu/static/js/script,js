@@ -1,0 +1,28 @@
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll(".dropdown-menu a").forEach(function (element) {
+    element.addEventListener("click", function (e) {
+    console.log('a')
+      let nextEl = this.nextElementSibling;
+      if (nextEl && nextEl.classList.contains("submenu")) {
+        e.preventDefault();
+        if (nextEl.style.display == "block") {
+          nextEl.style.display = "none";
+        } else {
+          nextEl.style.display = "block";
+        }
+      }
+    });
+  });
+      $(function () {
+
+
+      $(".list-group-tree").on('click', "[data-toggle=collapse]", function () {
+        let collapseElementList = $(this).next('.list-group.collapse').find('.list-group.collapse').addBack('.list-group.collapse');
+        const collapseList = [...collapseElementList].map(collapseEl => new bootstrap.Collapse(collapseEl))
+        return false;
+      })
+    });
+
+});
+
+

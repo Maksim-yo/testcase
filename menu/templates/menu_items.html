@@ -1,0 +1,14 @@
+{% for item in items %}
+
+    {% if item.childrens.all|length > 0 %}
+        <li><a class="dropdown-item" href='{{item.url}}'> {{item.name}} &raquo; </a>
+            <ul class="submenu dropdown-menu">
+                {% include "menu_items.html" with items=item.childrens.all %}
+            </ul>
+    {% else %}
+        <li><a class="dropdown-item" href="#"> {{item.name}} </a>
+
+    {% endif %}
+
+{% endfor%}
+
